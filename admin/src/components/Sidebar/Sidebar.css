@@ -1,0 +1,62 @@
+.sidebar {
+  width: 18%;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Light gray background for a clean look */
+  padding: 20px 0;
+  border-right: 1px solid #e0e0e0; /* A single, subtle border */
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-options {
+  padding-top: 50px;
+  padding-left: 20px; /* Adjusted padding for better alignment */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Reduced gap for a tighter feel */
+}
+
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap for better icon/text separation */
+  padding: 12px 20px; /* More padding for a larger click area */
+  border-radius: 8px; /* Slightly rounded corners */
+  cursor: pointer;
+  color: #555; /* Darker text color */
+  text-decoration: none; /* Remove underline from NavLink */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
+}
+
+.sidebar-option:hover {
+  background-color: #e6e8eb; /* Subtle gray on hover */
+}
+
+.sidebar-option img {
+  width: 20px; /* Larger icons */
+}
+
+.sidebar-option p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sidebar-option.active {
+  background-color: #fff; /* White background for the active state */
+  color: #e55934; /* Tomato color for active text */
+  border-left: 4px solid #e55934; /* A prominent left border highlight */
+  border-radius: 0 8px 8px 0;
+  padding-left: 16px; /* Adjust padding to make room for the border */
+}
+
+@media (max-width: 900px) {
+  .sidebar-option p {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .sidebar-option img {
+    width: 17px;
+  }
+}

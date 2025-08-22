@@ -1,0 +1,131 @@
+.header {
+  height: 38vw; /* Adjust height to match the desired aspect ratio */
+  max-height: 600px; /* Prevents it from getting too tall on large screens */
+  margin: 30px auto;
+  position: relative;
+  width: 90%; /* Contained width to create a card-like element */
+  border-radius: 25px; /* Softer, larger border-radius */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  
+  /* Image and color to fit the container */
+  background: url('/header.jpg') no-repeat right center, #3a3a3a;
+  background-size: contain;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 50%, transparent 80%);
+}
+
+.header-contents {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 6vw;
+  max-width: 50%;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+/* Typography */
+.header-contents h2 {
+  font-weight: 700;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.header-contents p {
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+  line-height: 1.5;
+  margin-bottom: 1vw;
+}
+
+/* The elegant "ghost" button */
+.view-menu-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  font-weight: 600;
+  padding: 1.2vw 2.5vw;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none; /* Removes the underline from the link */
+  text-align: center;
+  border: 1px solid white; /* Thin border */
+
+}
+
+.view-menu-btn:hover {
+  background-color: white;
+  color: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-50%) translateX(-20px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1050px) {
+  .header-contents {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 750px) {
+  .header {
+    height: 60vh;
+    max-height: 400px;
+  }
+  
+  /* The mobile-specific gradient now starts from the bottom */
+  .header-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 50%);
+  }
+  
+  /* Mobile content is centered at the bottom of the header */
+  .header-contents {
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 5%;
+    max-width: 90%;
+    gap: 20px;
+  }
+  
+  .header-contents h2 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  
+  .header-contents p {
+    display: none;
+  }
+  
+  .view-menu-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+  
+  /* Updated fadeIn animation for mobile */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px) translateX(-50%); }
+    to { opacity: 1; transform: translateY(0) translateX(-50%); }
+  }
+}
