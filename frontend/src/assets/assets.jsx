@@ -2,7 +2,6 @@ import basket_icon from './basket_icon.png'
 import logo from './logo.png'
 import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
-import header_img from './header_img.png'
 import search_icon from './search_icon.png'
 import shopping_cart_icon from './shopping_cart_icon.png'
 
@@ -76,7 +75,6 @@ export const assets = {
     selector_icon,
 
     // not added
-    header_img,
     profile_icon,
     basket_icon,
     parcel_icon,
