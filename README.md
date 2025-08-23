@@ -2,8 +2,7 @@
 
 A modern **MERN fullstack food delivery app** with an **Admin Panel**, secure payments via **Stripe**, and API testing with **Postman**.
 
-SwiftEats allows users to browse restaurants, add meals to cart, place orders, and pay online.
-Admins can manage menus, orders, and users.
+SwiftEats allows users to browse restaurants, add meals to cart, place orders, and pay online. Admins can manage menus, orders, and users.
 
 ---
 
@@ -30,80 +29,78 @@ Admins can manage menus, orders, and users.
 
 ## 📂 Folder Structure
 
+```
 swifteats/
-├─ client/ # React frontend
-├─ server/ # Express backend
+├─ client/      # React frontend
+├─ server/      # Express backend
 └─ README.md
+```
 
-\---
+---
 
-\## 🚀 Getting Started &#x20;
+## 🚀 Getting Started
 
-\### Prerequisites &#x20;
+### Prerequisites
 
-\- Node.js (>= 16) &#x20;
+* Node.js (>= 16)
+* MongoDB Atlas/local instance
+* Stripe account
 
-\- MongoDB Atlas/local instance &#x20;
+### Installation
 
-\- Stripe account &#x20;
-
-\### Installation &#x20;
-
-\`\`\`bash
-
-git clone [https://github.com/yourusername/swifteats.git](https://github.com/yourusername/swifteats.git)
-
+```bash
+git clone https://github.com/yourusername/swifteats.git
 cd swifteats
 
-\# Backend
-
+# Backend
 cd server && npm install
 
-\# Frontend
-
+# Frontend
 cd ../client && npm install
+```
+
+---
 
 ## ⚙️ Environment Variables
 
-**server/.env**
+Create a `.env` file in the **server** folder:
 
+```env
 PORT=5000
+MONGO_URI=your_mongodb_uri
+STRIPE_SECRET_KEY=your_stripe_secret_key
+CLIENT_URL=http://localhost:5173
+```
 
-MONGO\_URI=your\_mongodb\_uri
-
-STRIPE\_SECRET\_KEY=your\_stripe\_secret\_key
-
-CLIENT\_URL=http\://localhost:5173
+---
 
 ## ▶️ Running the App
 
 **Backend**
 
-```
+```bash
 cd server
 npm run dev
-
 ```
 
 **Frontend**
 
-```
+```bash
 cd client
 npm run dev
-
 ```
 
 ---
 
 ## 📡 API Endpoints
 
-| MethodEndpointDescriptionAuth |               |                 |             |
-| ----------------------------- | ------------- | --------------- | ----------- |
-| GET                           | /api/foods    | Get all foods   | No          |
-| POST                          | /api/foods    | Add new food    | Yes (Admin) |
-| GET                           | /api/orders   | Get user orders | Yes         |
-| POST                          | /api/orders   | Create order    | Yes         |
-| POST                          | /api/payments | Stripe checkout | Yes         |
+| Method | Endpoint      | Description     | Auth        |
+| ------ | ------------- | --------------- | ----------- |
+| GET    | /api/foods    | Get all foods   | No          |
+| POST   | /api/foods    | Add new food    | Yes (Admin) |
+| GET    | /api/orders   | Get user orders | Yes         |
+| POST   | /api/orders   | Create order    | Yes         |
+| POST   | /api/payments | Stripe checkout | Yes         |
 
 ---
 
@@ -117,13 +114,12 @@ Orders are processed securely with Stripe:
 
 **Example request:**
 
-```
+```js
 const res = await fetch("/api/payments", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ amount: 2999, currency: "usd" }),
 });
-
 ```
 
 ---
@@ -147,12 +143,14 @@ SwiftEats comes with a dedicated **admin dashboard** for managing the platform.
 
 **Example credentials (development)**
 
-```
+```text
 Email: admin@test.com
 Password: admin12345678
 ```
 
-## Future Enhancements
+---
+
+## 🔮 Future Enhancements
 
 * 🛵 Delivery tracking in real time
 * 🗺 Map integration for restaurants & deliveries
